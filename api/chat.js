@@ -134,7 +134,7 @@ export default async function handler(req, res) {
     );
 
     const response = await anthropic.messages.create({
-      model: 'claude-3-5-haiku-latest',
+      model: 'claude-haiku-4-5',
       max_tokens: 250,
       system: SYSTEM_PROMPT,
       messages: apiMessages,
