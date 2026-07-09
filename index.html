@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Kodad inifrån – Din personliga följeslagare </title>
+  <title>Kodad inifrån – Stefan Isenberg (BETATEST)</title>
   <meta name="description" content="Allt börjar med en tanke. En personlig följeslagare på vägen från autopilot till ett medvetet liv." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,7 +27,7 @@
     .nav-brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
     .nav-orb { width: 2.1rem; height: 2.1rem; border-radius: 50%; background: linear-gradient(135deg, var(--amber), var(--amber-dark)); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: #fff; letter-spacing: 0.05em; }
     .nav-name { font-family: 'Crimson Pro', serif; font-size: 1.1rem; font-weight: 500; color: var(--ink); }
-    .nav-test { font-size: 0.65rem; color: var(--amber); font-weight: 600; margin-left: 0.5rem; }
+    .nav-badge { font-size: 0.65rem; color: var(--amber); font-weight: 600; margin-left: 0.5rem; background: var(--amber-pale); padding: 0.2rem 0.65rem; border-radius: 100px; }
     .hero { padding-top: 4.5rem; min-height: 100svh; display: grid; grid-template-columns: 1fr 1fr; max-width: 1140px; margin: 0 auto; gap: 3rem; align-items: center; padding-left: 1.5rem; padding-right: 1.5rem; padding-bottom: 3rem; }
     .hero-left { padding-top: 1rem; }
     h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 800; line-height: 1.1; color: var(--ink); }
@@ -41,7 +41,6 @@
     .chat-topbar-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
     .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
-    .test-badge { font-size: 0.65rem; background: var(--amber-pale); color: var(--amber); padding: 0.2rem 0.65rem; border-radius: 100px; margin-left: auto; }
     .chat-msgs { flex: 1; overflow-y: auto; padding: 1.25rem 1rem; display: flex; flex-direction: column; gap: 1rem; min-height: 0; }
     .msg { display: flex; gap: 0.6rem; }
     .msg.user { flex-direction: row-reverse; }
@@ -65,6 +64,27 @@
     .send { width: 2.6rem; height: 2.6rem; flex-shrink: 0; border-radius: 0.75rem; border: none; background: var(--amber); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
     .send:hover:not(:disabled) { background: var(--amber-dark); }
     .send:disabled { opacity: 0.3; cursor: not-allowed; }
+    .info-box { background: var(--amber-pale); border: 1px solid rgba(194,98,42,0.2); border-radius: 1rem; padding: 1.25rem; margin: 2rem 0; font-size: 0.95rem; line-height: 1.6; }
+    .info-box strong { color: var(--amber-dark); display: block; margin-bottom: 0.5rem; }
+    .info-box p { margin: 0.5rem 0; }
+    .guide-box { background: #fff; border: 1px solid var(--parchment); border-radius: 1rem; padding: 1.25rem; margin: 1.5rem 0; }
+    .guide-box h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 0.75rem; }
+    .guide-box ul { list-style: none; padding-left: 0; }
+    .guide-box li { padding: 0.4rem 0 0.4rem 1.5rem; position: relative; font-size: 0.9rem; }
+    .guide-box li:before { content: "→"; position: absolute; left: 0; color: var(--amber); font-weight: bold; }
+    .feedback-box { background: #fff; border: 2px solid var(--amber); border-radius: 1rem; padding: 1.25rem; margin: 1.5rem 0; text-align: center; }
+    .feedback-box h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 0.75rem; }
+    .feedback-box p { margin-bottom: 1rem; font-size: 0.95rem; }
+    .feedback-btn { background: var(--amber); color: #fff; border: none; padding: 0.85rem 2rem; border-radius: 0.75rem; cursor: pointer; font-weight: 600; font-size: 1rem; transition: background 0.2s; font-family: inherit; }
+    .feedback-btn:hover { background: var(--amber-dark); }
+    .book-links { display: flex; gap: 1rem; margin: 1.5rem 0; flex-wrap: wrap; }
+    .book-btn { background: var(--amber); color: #fff; padding: 0.75rem 1.5rem; border-radius: 0.75rem; text-decoration: none; font-weight: 600; transition: background 0.2s; font-size: 0.9rem; }
+    .book-btn:hover { background: var(--amber-dark); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--ink); margin: 2rem 0 1rem; }
+    @media (max-width: 780px) {
+      .hero { grid-template-columns: 1fr; padding-top: 5rem; gap: 2rem; min-height: auto; padding-bottom: 2rem; }
+      .chat-col { height: 75svh; }
+    }
   </style>
 </head>
 <body>
@@ -73,7 +93,7 @@
   <div class="nav-inner">
     <a class="nav-brand" href="#">
       <div class="nav-orb">SI</div>
-      <span class="nav-name">Kodad inifrån<span class="nav-test">TEST VERSION</span></span>
+      <span class="nav-name">Kodad inifrån<span class="nav-badge">BETATEST</span></span>
     </a>
   </div>
 </nav>
@@ -81,7 +101,7 @@
 <section class="hero">
   <div class="hero-left">
     <h1>Allt börjar med<span class="h1-em">en tanke.</span></h1>
-    <p class="hero-desc">Test-version utan auth. Prata direkt med Stefan.</p>
+    <p class="hero-desc">En digital följeslagare på vägen från autopilot till ett medvetet liv.</p>
   </div>
 
   <div class="chat-col">
@@ -89,9 +109,9 @@
       <div class="chat-topbar">
         <div class="chat-av">SI</div>
         <div class="chat-topbar-info">
-          <div class="chat-topbar-name">Stefan Isenberg</div>
+          <div class="chat-topbar-name">Din följeslagare</div>
+          <div class="chat-topbar-status"><span class="live-dot"></span> Här med dig</div>
         </div>
-        <span class="test-badge">TEST</span>
       </div>
       <div class="chat-msgs" id="msgs"></div>
       <div class="chat-input">
@@ -104,9 +124,54 @@
   </div>
 </section>
 
+<section style="max-width: 800px; margin: 3rem auto; padding: 0 1.5rem;">
+  
+  <div class="info-box">
+    <strong>🔬 Du testar Kodad inifrån</strong>
+    <p>Denna app är en betatestversion. Du hjälper mig att förbättra den. Din feedback är mycket värdefull.</p>
+    <p>Testa gärna genom 2-3 samtal och ge feedback nedan när du är klar.</p>
+  </div>
+
+  <div class="guide-box">
+    <h3>💡 Hur ställer du bra frågor?</h3>
+    <ul>
+      <li>Ställ verkliga frågor om dina egna mönster och utmaningar</li>
+      <li>Inte abstrakt filosofi — utan vad som händer i ditt liv just nu</li>
+      <li>Det behöver inte vara långa, komplicerade frågor</li>
+      <li>Försök följa dina första intryck efter varje svar</li>
+    </ul>
+  </div>
+
+  <div class="guide-box">
+    <h3>❓ Vad appen är — och INTE är</h3>
+    <ul>
+      <li>Appen är en följeslagare för reflektion — en spegel för dina mönster</li>
+      <li>Den hjälper dig se hur tanke påverkar känsla och handling</li>
+      <li>Den erbjuder ett nästa konkret steg — inte stora lösningar</li>
+      <li>Hon ersätter INTE psykolog, terapeut, läkare eller professionell hjälp</li>
+      <li>Om du mår mycket dåligt, behöver du verklig mänsklig hjälp</li>
+    </ul>
+  </div>
+
+  <div class="feedback-box">
+    <h3>📝 Din feedback</h3>
+    <p>Vad upplevde du? Vad fungerade? Vad fungerade inte? Klicka knappen nedan för att ge din feedback.</p>
+    <button class="feedback-btn" onclick="openFeedbackForm()">Öppna feedbackformulär</button>
+  </div>
+
+  <h2 class="section-title">📚 Läs mer</h2>
+  <p>Vill du gå djupare? Boken "Kodad inifrån" utvecklar dessa idéer mycket mer:</p>
+  <div class="book-links">
+    <a href="https://isenbergperspective.gumroad.com/l/ivdlku" target="_blank" class="book-btn">Köp på Gumroad</a>
+    <a href="https://www.amazon.com/s?k=kodad+inifr%C3%A5n+stefan+isenberg" target="_blank" class="book-btn">Köp på Amazon</a>
+  </div>
+
+</section>
+
 <script>
 const GREETING = `Hej.\n\nJag är glad att du är här.\n\nJag vet hur det känns när livet bara rullar på. Jag har varit där.\n\nMen jag vet också att det går att skriva om manuset. Allt börjar med en tanke.\n\nSå låt mig fråga dig:\n\nVad har fått dig att söka dig hit just nu?`;
 const SUGGESTIONS = ['Jag känner att jag lever på autopilot.', 'Jag skjuter alltid upp saker.', 'Jag fastnar i samma gamla loopar.', 'Jag vet inte var jag ska börja.'];
+const FEEDBACK_FORM_URL = 'https://forms.gle/vr226ixMXd9GnCHm6';
 
 let msgs = [];
 let busy = false;
@@ -158,7 +223,7 @@ async function sendText(text) {
     });
     const d = await r.json();
     if (d.error) {
-      msgs.push({ role: 'assistant', content: `API Error: ${d.error}` });
+      msgs.push({ role: 'assistant', content: `Error: ${d.error}` });
     } else {
       const reply = d.content || 'Jag är här. Vad dyker upp i dig just nu?';
       msgs.push({ role: 'assistant', content: reply });
@@ -193,6 +258,10 @@ function resize(el) {
 
 function toggleSend() {
   document.getElementById('send-btn').disabled = !document.getElementById('inp').value.trim() || busy;
+}
+
+function openFeedbackForm() {
+  window.open(FEEDBACK_FORM_URL, '_blank');
 }
 </script>
 </body>
